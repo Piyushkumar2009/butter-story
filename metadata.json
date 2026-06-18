@@ -1,0 +1,6 @@
+{
+  "name": "Butter Story Bakery",
+  "description": "Premium luxury bakery in Lucknow known for custom cakes, artisanal pastries, dessert jars, and premium cafe experience.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

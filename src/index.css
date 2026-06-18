@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* Custom brand palette variables */
+  --color-brand-gold: #F4C95D;
+  --color-brand-gold-dark: #E2B23F;
+  --color-brand-cream: #FFF8E7;
+  --color-brand-brown: #6B4423;
+  --color-brand-dark: #2D1B12;
+  --color-brand-dark-accent: #3d261a;
+  --color-brand-light-gray: #FAF5EF;
+  --color-brand-dark-gray: #1b100b;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+.glass-panel {
+  background: rgba(255, 248, 231, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(107, 68, 35, 0.15);
+}
+
+.dark .glass-panel {
+  background: rgba(45, 27, 18, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(244, 201, 93, 0.15);
+}
+
+.glowing-gold {
+  box-shadow: 0 0 15px rgba(244, 201, 93, 0.4);
+}
+
+.glowing-gold-lg {
+  box-shadow: 0 0 25px rgba(244, 201, 93, 0.55);
+}
+
+/* No scrollbar customization */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Custom smooth transition transitions */
+.transition-all-300 {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
