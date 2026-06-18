@@ -56,15 +56,7 @@ export default function App() {
         if (element) {
           e.preventDefault();
           
-          // Compute navbar offset dynamic height
-          const navbar = document.getElementById('main-navbar');
-          const navbarHeight = navbar ? navbar.offsetHeight : 80;
-          
-          const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-          const offsetPosition = elementPosition - navbarHeight;
-
-          window.scrollTo({
-            top: offsetPosition,
+          element.scrollIntoView({
             behavior: 'smooth',
           });
 

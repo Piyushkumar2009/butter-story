@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, Phone, Cake } from 'lucide-react';
 import { STORE_CONTACT } from '../data';
@@ -19,11 +19,24 @@ export default function Navbar() {
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
     { name: 'Products', href: '#products' },
-    { name: 'Cakes', href: '#cakes' },
     { name: 'Gallery', href: '#gallery' },
     { name: 'Reviews', href: '#reviews' },
     { name: 'Contact', href: '#contact' },
   ];
+
+  const handleScrollToSegment = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const targetId = href.substring(1);
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+      });
+
+      window.history.pushState(null, '', href);
+    }
+    setIsOpen(false);
+  };
 
   return (
     <>
@@ -38,7 +51,11 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <a href="#home" className="flex items-center space-x-2 group">
+            <a
+              href="#home"
+              onClick={(e) => handleScrollToSegment(e, '#home')}
+              className="flex items-center space-x-2 group"
+            >
               <div className="w-10 h-10 rounded-full bg-[#6B4423] flex items-center justify-center shadow-md transition-transform duration-300 group-hover:rotate-12">
                 <Cake className="w-5 h-5 text-[#F4C95D]" />
               </div>
@@ -58,6 +75,7 @@ export default function Navbar() {
                 <a
                   key={link.name}
                   href={link.href}
+                  onClick={(e) => handleScrollToSegment(e, link.href)}
                   className="px-4 py-2 rounded-full text-sm font-medium text-[#2D1B12] hover:text-[#6B4423] hover:bg-[#F4C95D]/15 transition-all duration-200"
                 >
                   {link.name}
@@ -113,7 +131,7 @@ export default function Navbar() {
                   <a
                     key={link.name}
                     href={link.href}
-                    onClick={() => setIsOpen(false)}
+                    onClick={(e) => handleScrollToSegment(e, link.href)}
                     className="block px-4 py-3 rounded-lg text-base font-medium text-[#2D1B12] hover:bg-[#F4C95D]/15 hover:text-[#6B4423] transition-all duration-200"
                   >
                     {link.name}

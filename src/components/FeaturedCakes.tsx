@@ -41,7 +41,7 @@ Please verify availability and pricing. Thank you!`;
   };
 
   return (
-    <section id="cakes" className="py-20 sm:py-28 bg-white text-gray-800 relative">
+    <section id="cakes" className="scroll-mt-24 py-20 sm:py-28 bg-white text-gray-800 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Title and Controls */}

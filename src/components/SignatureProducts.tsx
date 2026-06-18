@@ -4,7 +4,7 @@ import { SIGNATURE_PRODUCTS } from '../data';
 
 export default function SignatureProducts() {
   return (
-    <section id="products" className="py-20 sm:py-28 bg-[#FFF8E7]/50 text-gray-800 relative">
+    <section id="products" className="scroll-mt-24 py-20 sm:py-28 bg-[#FFF8E7]/50 text-gray-800 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header Title */}

@@ -5,7 +5,7 @@ export default function LocationStore() {
   const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(STORE_CONTACT.address)}`;
 
   return (
-    <section id="contact" className="py-20 sm:py-28 bg-[#FFF8E7]/30 text-gray-800 relative">
+    <section id="contact" className="scroll-mt-24 py-20 sm:py-28 bg-[#FFF8E7]/30 text-gray-800 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-stretch">
