@@ -24,12 +24,21 @@ export default function Navbar() {
     { name: 'Contact', href: '#contact' },
   ];
 
-  const handleScrollToSegment = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
+  const handleScrollToSegment = (e: React.MouseEvent<HTMLAnchorElement> | null, href: string) => {
+    if (e) {
+      e.preventDefault();
+    }
     const targetId = href.substring(1);
     const element = document.getElementById(targetId);
     if (element) {
-      element.scrollIntoView({
+      const navbar = document.getElementById('main-navbar');
+      const navbarHeight = navbar ? navbar.offsetHeight : 80;
+      
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - navbarHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
         behavior: 'smooth',
       });
 
@@ -37,6 +46,28 @@ export default function Navbar() {
     }
     setIsOpen(false);
   };
+
+  // Support smooth offset scrolling if the page was loaded/refreshed with a hash URL parameter
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash && hash.startsWith('#')) {
+      const timer = setTimeout(() => {
+        const targetId = hash.substring(1);
+        const element = document.getElementById(targetId);
+        if (element) {
+          const navbar = document.getElementById('main-navbar');
+          const navbarHeight = navbar ? navbar.offsetHeight : 80;
+          const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+          const offsetPosition = elementPosition - navbarHeight;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth',
+          });
+        }
+      }, 300); // Yield to DOM layout rendering
+      return () => clearTimeout(timer);
+    }
+  }, []);
 
   return (
     <>

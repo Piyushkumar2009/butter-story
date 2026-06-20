@@ -25,7 +25,7 @@ export default function Testimonials() {
   const currentReview = TESTIMONIALS[activeIndex];
 
   return (
-    <section id="reviews" className="scroll-mt-24 py-20 sm:py-28 bg-white text-gray-800 relative overflow-hidden">
+    <div className="py-20 sm:py-28 bg-white text-gray-800 relative overflow-hidden">
       {/* Absolute grid background accent lines */}
       <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#6B4423]/10 to-transparent" />
       
@@ -130,6 +130,6 @@ export default function Testimonials() {
         </div>
 
       </div>
-    </section>
+    </div>
   );
 }

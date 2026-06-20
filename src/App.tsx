@@ -38,38 +38,6 @@ export default function App() {
     return () => clearTimeout(timer);
   }, []);
 
-  // Highly resilient global smooth scrolling interceptor for local anchor links
-  useEffect(() => {
-    if (loading) return;
-
-    const handleAnchorClick = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      const anchor = target.closest('a');
-      if (!anchor) return;
-
-      const href = anchor.getAttribute('href');
-      // Only capture internal hash links (excluding dummy '#' links)
-      if (href && href.startsWith('#') && href.length > 1) {
-        const targetId = href.substring(1);
-        const element = document.getElementById(targetId);
-        
-        if (element) {
-          e.preventDefault();
-          
-          element.scrollIntoView({
-            behavior: 'smooth',
-          });
-
-          // Elegant state historical update without browser jumping
-          window.history.pushState(null, '', href);
-        }
-      }
-    };
-
-    document.addEventListener('click', handleAnchorClick);
-    return () => document.removeEventListener('click', handleAnchorClick);
-  }, [loading]);
-
   return (
     <div className="min-h-screen bg-[#FFF8E7] text-gray-800 antialiased select-none font-sans overflow-x-hidden selection:bg-[#F4C95D]/40 scroll-smooth pb-16 md:pb-0">
       
@@ -133,16 +101,22 @@ export default function App() {
           <main className="relative">
             
             {/* 1. HERO SECTION */}
-            <HeroSection />
+            <section id="home">
+              <HeroSection />
+            </section>
 
             {/* 2. TRUST INDICATORS */}
             <TrustIndicators />
 
             {/* 3. ABOUT BUTTER STORY */}
-            <AboutSection />
+            <section id="about">
+              <AboutSection />
+            </section>
 
             {/* 4. SIGNATURE PRODUCTS CATEGORIES */}
-            <SignatureProducts />
+            <section id="products">
+              <SignatureProducts />
+            </section>
 
             {/* 5. FEATURED CAKES SECTION */}
             <FeaturedCakes />
@@ -154,16 +128,22 @@ export default function App() {
             <SpecialOccasions />
 
             {/* 8. CUSTOMER TESTIMONIALS */}
-            <Testimonials />
+            <section id="reviews">
+              <Testimonials />
+            </section>
 
             {/* 9. PHOTO GALLERY WITH LIGHTBOX */}
-            <PhotoGallery />
+            <section id="gallery">
+              <PhotoGallery />
+            </section>
 
             {/* 10. MENU PREVIEW ACCORDING TO TABS */}
             <MenuPreview />
 
             {/* 11. LOCATION & STORE MAP DETAILS */}
-            <LocationStore />
+            <section id="contact">
+              <LocationStore />
+            </section>
 
             {/* 12. FAQ SECTION ACCORDIONS */}
             <FAQSection />

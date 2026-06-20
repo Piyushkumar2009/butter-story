@@ -10,7 +10,7 @@ export default function HeroSection() {
   ];
 
   return (
-    <section id="home" className="relative min-h-screen pt-28 flex items-center overflow-hidden bg-[#FFF8E7] pb-16">
+    <div className="relative min-h-screen pt-28 flex items-center overflow-hidden bg-[#FFF8E7] pb-16">
       {/* Decorative background elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-[#F4C95D]/15 rounded-full blur-3xl -z-10" />
       <div className="absolute bottom-20 left-10 w-80 h-80 bg-[#6B4423]/5 rounded-full blur-3xl -z-10" />
@@ -170,6 +170,6 @@ export default function HeroSection() {
 
         </div>
       </div>
-    </section>
+    </div>
   );
 }

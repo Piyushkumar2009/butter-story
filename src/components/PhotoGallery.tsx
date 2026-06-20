@@ -49,7 +49,7 @@ export default function PhotoGallery() {
   };
 
   return (
-    <section id="gallery" className="scroll-mt-24 py-20 sm:py-28 bg-[#FFF8E7]/40 text-gray-800 relative">
+    <div className="py-20 sm:py-28 bg-[#FFF8E7]/40 text-gray-800 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Gallery Title Block */}
@@ -210,6 +210,6 @@ export default function PhotoGallery() {
         </AnimatePresence>
 
       </div>
-    </section>
+    </div>
   );
 }
